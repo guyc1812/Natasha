@@ -3,6 +3,47 @@
     "index" : [
         {
             "category": "Thor",
+            "title":    "JavaScript(ES6)",
+            "path":     "",
+            "nav":      "",
+            "status":   310,
+            "items":    [
+                {
+                    "category": "Thor",
+                    "title":    "New Features",
+                    "path":     "es6/NewFeatures.md",
+                    "nav":      "ES6-NewFeatures",
+                    "status":   310,
+                    "items":    []
+                },{
+                    "category": "Thor",
+                    "title":    "ES6 Demos",
+                    "path":     "es6/Demos.md",
+                    "nav":      "ES6-Demos",
+                    "status":   310,
+                    "items":    []
+                }
+            ]
+        },
+        {
+            "category": "Thor",
+            "title":    "CSS Tricks",
+            "path":     "",
+            "nav":      "",
+            "status":   310,
+            "items":    [
+                {
+                    "category": "Thor",
+                    "title":    "Absolute Centre",
+                    "path":     "cssTricks/absoluteCenter/absoluteCenter.md",
+                    "nav":      "Angular-AbsoluteCenter",
+                    "status":   310,
+                    "items":    []
+                }
+            ]
+        },
+        {
+            "category": "Thor",
             "title":    "Angular",
             "path":     "",
             "nav":      "",
