@@ -44,6 +44,14 @@
         },
         {
             "category": "Thor",
+            "title":    "Responsive Grid",
+            "path":     "",
+            "nav":      "",
+            "status":   310,
+            "items":    []
+        },
+        {
+            "category": "Thor",
             "title":    "Angular",
             "path":     "",
             "nav":      "",
