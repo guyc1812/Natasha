@@ -4,8 +4,8 @@
         {
             "category": "Thor",
             "title":    "JavaScript(ES6)",
-            "path":     "",
-            "nav":      "",
+            "path":     "es6/README.md",
+            "nav":      "JavaScript",
             "status":   310,
             "items":    [
                 {
@@ -20,6 +20,13 @@
                     "title":    "ES6 Demos",
                     "path":     "es6/Demos.md",
                     "nav":      "ES6-Demos",
+                    "status":   310,
+                    "items":    []
+                },{
+                    "category": "Thor",
+                    "title":    "Promise",
+                    "path":     "es6/Promise.md",
+                    "nav":      "ES6-Promise",
                     "status":   310,
                     "items":    []
                 }
