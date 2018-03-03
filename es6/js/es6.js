@@ -8,11 +8,11 @@ for (let a of arr) {
 }
 
 
-// 只有使用let关键字，才能将变量加入windows全局对象中
+// let and const
 let a = 'a';
 let b = 'b';
 const c = 'c';
-console.log(window.a);  //a
+console.log(window.a);  //undefined
 console.log(window.b);  //undefined
 console.log(window.c);  //undefined
 
@@ -23,17 +23,19 @@ function makeRequest(url, timeout = 2000, callback = function() {}) {
     console.log(arguments[0]);
     console.log(arguments[1]);
     console.log(arguments[2]);
+    console.log(arguments);
 }
-makeRequest('/aa');
+makeRequest('/aa'); // /aa
+                    // undefined
+                    // undefined
 
-
-// 剩余参数（ rest parameter ）
+// 剩余参数(rest parameter)
 // 剩余参数受到两点限制。一是函数只能有一个剩余参数，并且它必须被放在最后。
 // 第二个限制是剩余参数不能在对象字面量的 setter 属性中使用。
 // 下例展示 arguments 是一个伪数组（Array-like）,可使用Array.prototype.slice.call(arguments)转化为数组。
 function test() {
-    console.log(test.name)      // 函数具有那么属性
-    console.log(test.length)    // 函数具有参数长度属性
+    console.log(test.name);      // 函数具有那么属性
+    console.log(test.length);    // 函数具有参数长度属性
     let arg = Array.prototype.slice.call(arguments,0);
     console.log(arg);
 }
@@ -132,7 +134,7 @@ let o2 = { b: 2 };
 let o3 = { c: 3 };
 let obj2 = Object.assign(o1, o2, o3);
 console.log(obj2); // { a: 1, b: 2, c: 3 }
-console.log(o1);  // { a: 1, b: 2, c: 3 }, target object itself is changed.
+console.log(o1);    // { a: 1, b: 2, c: 3 }, target object itself is changed.
 
 
 //浅拷贝与深拷贝
