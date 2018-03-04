@@ -12,7 +12,7 @@ AJAX is a misleading name. AJAX applications might use XML to transport data, bu
 
 ## Usage
 
-```
+```javascript
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -25,7 +25,7 @@ function loadDoc() {
 }
 ```
 
-```
+```javascript
 var data = new FormData();  
 data.append('file', file, file.name);
 var xhr = new XMLHttpRequest();     
@@ -41,16 +41,17 @@ xhr.onload = function () {
 ```
 
 ajax in jquery
-```
+
+```javascript
 $("#div1").load("demo_test.txt #p1");
 ```
-```
+```javascript
 $.get(URL,callback);
 ```
-```
+```javascript
 $.post(URL,data,callback);
 ```
-```
+```javascript
 $.ajax({
     url: url,
     type: 'PUT',  //'DELETE','GET','POST'
