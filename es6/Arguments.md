@@ -3,7 +3,7 @@
 * **Array-like to array**
 
     * `let arr = Array.prototype.slice.call(arguments, 0);`
-    * `let arr = Array.from(arguments);`
+    * `let arr = Array.from(arguments);`<br>
     
     ```javascript
     function f(a, b) {
