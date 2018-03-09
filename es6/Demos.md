@@ -1,120 +1,47 @@
 # Demos
 
-```javascript
-// for-in 与 for-of
-let arr = [{a:true},{b:false}];
-for (let a in arr) {
-    console.log(a);//1,2
-}
-for (let a of arr) {
-    console.log(a);//object,object
-}
+## for-in & for-of
+
+    * in array
+    
+        ```javascript
+        let arr = [{a:true},{b:false}];
+        for (let item in arr) {
+            console.log(item);  //1
+                                // 2
+        }
+        for (let item of arr) {
+            console.log(item);  //Object { a: true }
+                                //Object { b: false }
+        }
+        ```
+    
+    * in object
+    
+        ```javascript
+        let obj = {a:1,b:2};
+        for (let item in obj) {
+            console.log(item);  //a
+                                //b
+        }
+        for (let item of obj) {
+            console.log(item);  //TypeError: obj is not iterable
+        }
+        ```
+
+## Copy
+
+## Object.assign
+
+## Set
+
+## Map
 
 
-// let and const
-let a = 'a';
-let b = 'b';
-const c = 'c';
-console.log(window.a);  //undefined
-console.log(window.b);  //undefined
-console.log(window.c);  //undefined
 
 
-// 函数默认参数，参数列表未填补的项使用默认值
-// 默认值也可以是函数表达式的结果，如 timeout = getTime()
-function makeRequest(url, timeout = 2000, callback = function() {}) {
-    console.log(arguments[0]);
-    console.log(arguments[1]);
-    console.log(arguments[2]);
-    console.log(arguments);
-}
-makeRequest('/aa'); // /aa
-                    // undefined
-                    // undefined
-
-// 剩余参数(rest parameter)
-// 剩余参数受到两点限制。一是函数只能有一个剩余参数，并且它必须被放在最后。
-// 第二个限制是剩余参数不能在对象字面量的 setter 属性中使用。
-// 下例展示 arguments 是一个伪数组（Array-like）,可使用Array.prototype.slice.call(arguments)转化为数组。
-function test() {
-    console.log(test.name);      // 函数具有那么属性
-    console.log(test.length);    // 函数具有参数长度属性
-    let arg = Array.prototype.slice.call(arguments,0);
-    console.log(arg);
-}
-test("a","b","c","d"); //b,c,d
-// Array.prototype.slice.call(arguments)能将具有length属性的对象转成数组
-let al ={length:2,0:'first',1:'second'};          //类数组,有length属性，长度为2，第0个是first，第1个是second
-console.log(Array.prototype.slice.call(al,0));    // ["first", "second"],调用数组的slice(0);
-
-// 剩余参数例
-function checkArgs(...args) {
-    console.log(args.length);
-    console.log(arguments.length);
-    console.log(args[0], arguments[0]);
-    console.log(args[1], arguments[1]);
-}
-checkArgs("a", "b");
 
 
-// 使用剩余参数进行拓展运算符,使max操作符处理数组
-let values = [25, 50, 75, 100]
-console.log(Math.max.apply(Math, values)); // 100
-console.log(Math.max(...values));
-console.log(Math.max(...values,0,1000));
-
-// 关于 call 和 apply
-// obj.call(thisObj, arg1, arg2, ...);
-// obj.apply(thisObj, [arg1, arg2, ...]);
-// 两者作用一致，都是把obj(即this)绑定到thisObj，这时候thisObj具备了obj的属性和方法。
-// 或者说thisObj『继承』了obj的属性和方法。
-// 唯一区别是apply接受的是数组参数，call接受的是连续参数。
-
-
-// 关于块级函数
-// "use strict";
-// if (true) {
-//     console.log(typeof doSomething1);    // 抛出错误,暂时性死区
-//     let doSomething1 = function () {
-//         //...
-//     }
-//     console.log(typeof doSomething2);    // "function"   --  es6
-//                                          // 抛出错误      --  es5
-//     function doSomething2() {
-//         // ...
-//     }
-//     doSomething1()
-//     doSomething2();
-// }
-
-
-// 立即调用函数表达式（ immediately-invoked function expression ， IIFE ）
-
-
-// 使用箭头函数 修正 callback函数内部的this
-
-let PageHandler1 = {
-    id: "123456",
-    init: function() {
-        document.addEventListener("click", (function(event) {
-            this.doSomething(event.type); // 没有错误
-        }).bind(this), false);
-    },
-    doSomething: function(type) {
-        console.log("Handling " + type + " for " + this.id);
-    }
-};
-
-let PageHandler2 = {
-    id: "123456",
-    init: function() {
-        document.addEventListener("click",
-            event => this.doSomething(event.type), false);
-    },
-    doSomething: function(type) {
-        console.log("Handling " + type + " for " + this.id);
-    }
-};
 
 // Object.is() 方法
 // Object.is() 的结果与 === 运算符是相同的，仅有的例外是：它会认为+0 与 -0 不相等，而且 NaN 等于 NaN

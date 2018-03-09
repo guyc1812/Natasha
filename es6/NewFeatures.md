@@ -1,72 +1,107 @@
-# ES6 新特性
+# ES6 New Features
 
-* 默认参数
-* 模版表达式
-* 解构赋值
-* 拆包表达式
-* 改进的对象表达式
-* 箭头函数 =&>
-* 块级作用域的let和const
-* 类
-* 模块化
-* 延展操作符
+* Default Parameters
+* Template Literals
+* Destructuring Assignment
+* Arrow Functions
+* Block-Scoped Constructs Let and Const
+* Classes
+* Modules
+* Rest and Spread Operator
 * Promise
 
-## ES6中的默认参数
+## Default Parameters
 
 ```javascript
-var link = function(height = 50, color = 'red') {
+let link = function(height = 50, color = 'red') {
   //...
 }
 ```
 
-## ES6中的模版表达式
+## Template Literals
 
 ```javascript
-var name = `Your name is ${first} ${last}`
+let name = `Your name is ${first} ${last}`
+
+// Multi-line Strings
+let roadPoem = `Then took the other, as just as fair,
+    And having perhaps the better claim
+    Because it was grassy and wanted wear,
+    Though as for that the passing there
+    Had worn them really about the same,`
 ```
 
-## ES6解构赋值
+## Destructuring Assignment
 
 ```javascript
-let [a, b, c] = [1, 2, 3];
-//等同于
-let a = 1;
-let b = 2;
-let c = 3;
+let [a, b] = [10, 20];
+console.log(a);     // 10
+console.log(b);     // 20
+
+let [a1, b1, ...rest] = [10, 20, 30, 40, 50];
+console.log(a1);    // 10
+console.log(b1);    // 20
+console.log(rest);  // Array [ 30, 40, 50 ]
+
+let { a2, b2 } = { a2: 10, b2: 20 };
+console.log(a2);    // 10
+console.log(b2);    // 20
+
+let {a3, b3, ...rest3} = {a3: 10, b3: 20, c3: 30, d3: 40};
+console.log(a3);    // 10
+console.log(b3);    // 20
+console.log(rest3); // Object { c3: 30, d3: 40 }
 ```
 
-## ES6中的拆包表达式
+## Arrow Functions
+
+About 'this'
 
 ```javascript
-var data = $('body').data(); // 假设data中有mouse和house的值
-var house = data.house;
-var mouse = data.mouse;
-```
-==>
-```javascript
-var { house, mouse} = $('body').data()
-```
-or
-```javascript
-var [line1, line2, line3, , line5] = file.split('n')
-```
-
-## ES6中的箭头函数
-```javascript
-var _this = this
+// old
+let _this = this
 $('.btn').click(function(event){
   _this.sendData()
 })
 ```
-==>
 ```javascript
+// new
 $('.btn').click((event) =>{
   this.sendData()
 })
 ```
 
-## 块级作用域的let和const
+About return
+
+```javascript
+let ids = ['5632953c4e345e145fdf2df8','563295464e345e145fdf2df9']
+let messages = ids.map(function (value) {
+  return "ID is " + value // explicit return
+})
+```
+```javascript
+let ids = ['5632953c4e345e145fdf2df8','563295464e345e145fdf2df9']
+let messages = ids.map(value => `ID is ${value}`) // implicit return
+```
+
+## Block-Scoped Constructs Let and Const
+
+```javascript
+function calculateTotalAmount (vip) {
+  let amount = 0;
+  if (vip) {
+    let amount = 1; // amount = 1 ==> 1
+  } 
+  { 
+    let amount = 100;
+    {
+      let amount = 1000;
+    }
+  }  
+  return amount;
+}
+console.log(calculateTotalAmount(true)); // 1000
+```
 
 ```javascript
 function calculateTotalAmount (vip) {
@@ -89,7 +124,8 @@ console.log(calculateTotalAmount(true)); // 0
 function calculateTotalAmount (vip) {
   const amount = 0; 
   if (vip) {
-    const amount = 1; // amount = 1 ==> error
+    const amount = 1; 
+    //amount = 1;   //if no const => error
   } 
   {
     const amount = 100;
@@ -102,7 +138,7 @@ function calculateTotalAmount (vip) {
 console.log(calculateTotalAmount(true)); // 0
 ```
 
-## ES6中的类
+## Classes
 
 ```javascript
 class baseModel {
@@ -126,7 +162,7 @@ class AccountModel extends baseModel {
 }
 ```
 
-## ES6中的模块化
+## Modules 
 
 CommenJS:
 
@@ -141,7 +177,7 @@ module.exports = {
 ```
 ```javascript
 //main.js
-var service = require('module.js')
+let service = require('module.js')
 console.log(service.port)   // 3000
 ```
 
@@ -149,7 +185,7 @@ ES6:
 
 ```javascript
 //module.js
-export var port = 3000
+export let port = 3000
 export function getAccounts(url) {
   // ...
 }
@@ -166,20 +202,9 @@ import * as service from 'module'
 console.log(service.port)   // 3000
 ```
 
-## ES6 延展操作符
+## Rest and Spread Operator
        
-通过它可以将数组作为参数直接传入函数：
-
-```javascript
-let people=['Wayou','John','Sherlock'];
-function sayHello(people1,people2,people3){
-   console.log(`Hello ${people1},${people2},${people3}`);
-}
-
-sayHello(...people);//输出：Hello Wayou,John,Sherlock 
-```
-
-在函数定义时可以通过…rest获取定义参数外的所有参数：
+Rest
 
 ```javascript
 function foo(a, b, ...rest) {
@@ -195,8 +220,27 @@ foo(1, 2, 3, 4, 5);
 // Array [ 3, 4, 5 ]
 ```
 
+Spread
+
+```javascript
+let people=['Wayou','John','Sherlock'];
+function sayHello(people1,people2,people3){
+   console.log(`Hello ${people1},${people2},${people3}`);
+}
+sayHello(...people);//输出：Hello Wayou,John,Sherlock 
+```
+
+```javascript
+function sum(...theArgs) {
+  return theArgs.reduce((previous, current) => {
+    return previous + current;
+  });
+}
+console.log(sum(1, 2, 3));  // expected output: 6
+```
+
+
 ### Reference
 
-[http://web.jobbole.com/87140/](http://web.jobbole.com/87140/)
-[http://blog.csdn.net/miaorunqing/article/details/54964815](http://blog.csdn.net/miaorunqing/article/details/54964815)
+[Top 10 ES6 Features Every Busy JavaScript Developer Must Know](https://webapplog.com/es6/)
 

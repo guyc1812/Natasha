@@ -24,16 +24,23 @@
                     "items":    []
                 },{
                     "category": "Thor",
-                    "title":    "Js Definition",
-                    "path":     "es6/JsDefinition.md",
-                    "nav":      "ES6-JsDefinition",
+                    "title":    "Arguments",
+                    "path":     "es6/Arguments.md",
+                    "nav":      "ES6-Arguments",
                     "status":   310,
                     "items":    []
                 },{
                     "category": "Thor",
-                    "title":    "ES6 Demos",
-                    "path":     "es6/Demos.md",
-                    "nav":      "ES6-Demos",
+                    "title":    "Curry",
+                    "path":     "es6/Curry.md",
+                    "nav":      "ES6-Curry",
+                    "status":   310,
+                    "items":    []
+                },{
+                    "category": "Thor",
+                    "title":    "Closure",
+                    "path":     "es6/Closure.md",
+                    "nav":      "ES6-Closure",
                     "status":   310,
                     "items":    []
                 },{
@@ -41,6 +48,13 @@
                     "title":    "JS Tricks",
                     "path":     "es6/Tricks.md",
                     "nav":      "ES6-Tricks",
+                    "status":   310,
+                    "items":    []
+                },{
+                    "category": "Thor",
+                    "title":    "Js Definition",
+                    "path":     "es6/JsDefinition.md",
+                    "nav":      "ES6-JsDefinition",
                     "status":   310,
                     "items":    []
                 }
