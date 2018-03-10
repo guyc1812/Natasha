@@ -22,6 +22,18 @@
     f(1,2,3,4); //=>run
     ```
     
+    ```javascript
+    let a = {
+        length:3,
+        0:1,
+        1:2,
+        2:3
+    }
+    
+    let arr = Array.from(a);
+    console.log(arr);   //Array [ 1, 2, 3 ]
+    ```
+    
 * **Rest is an array**
 
     ```javascript

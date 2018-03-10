@@ -17,13 +17,6 @@
                     "items":    []
                 },{
                     "category": "Thor",
-                    "title":    "Promise",
-                    "path":     "es6/Promise.md",
-                    "nav":      "ES6-Promise",
-                    "status":   310,
-                    "items":    []
-                },{
-                    "category": "Thor",
                     "title":    "Closure",
                     "path":     "es6/Closure.md",
                     "nav":      "ES6-Closure",
